@@ -147,7 +147,7 @@ class OrderItemController extends BaseOrderItemController
     }
 
 
-    private function getCartItemErrors(OrderItemInterface $orderItem): ConstraintViolationListInterface
+    protected function getCartItemErrors(OrderItemInterface $orderItem): ConstraintViolationListInterface
     {
         return $this
             ->get('validator')
