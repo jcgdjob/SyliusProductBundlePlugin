@@ -155,7 +155,7 @@ class OrderItemController extends BaseOrderItemController
         ;
     }
 
-    private function getAddToCartFormWithErrors(ConstraintViolationListInterface $errors, FormInterface $form): FormInterface
+    protected function getAddToCartFormWithErrors(ConstraintViolationListInterface $errors, FormInterface $form): FormInterface
     {
         foreach ($errors as $error) {
             $form->get('cartItem')->get($error->getPropertyPath())->addError(new FormError($error->getMessage()));
@@ -164,7 +164,7 @@ class OrderItemController extends BaseOrderItemController
         return $form;
     }
 
-    private function handleBadAjaxRequestView(RequestConfiguration $configuration, FormInterface $form): Response
+    protected function handleBadAjaxRequestView(RequestConfiguration $configuration, FormInterface $form): Response
     {
         return $this->viewHandler->handle(
             $configuration,
